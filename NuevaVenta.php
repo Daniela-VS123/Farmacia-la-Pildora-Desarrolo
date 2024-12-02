@@ -1,9 +1,9 @@
 <?php
 // Configuración de la base de datos
-$server = "localhost";  // Cambia esto si es necesario (por ejemplo, a la IP de tu servidor)
-$user = "root";         // Asegúrate de que este es el usuario correcto
-$pass = "clave";        // Asegúrate de que esta es la contraseña correcta
-$db = "Farmacia";       // El nombre de tu base de datos
+$server = "localhost";  
+$user = "root";       
+$pass = "clave";       
+$db = "Farmacia";      
 
 // Crear conexión
 $conexion = mysqli_connect($server, $user, $pass, $db);
