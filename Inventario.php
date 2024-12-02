@@ -2,7 +2,7 @@
 // Configuración de la base de datos
 $server = "localhost";
 $user = "root";
-$pass = "clave";  // Cambia esta clave por la correcta
+$pass = "clave"; 
 $db = "Farmacia";
 
 // Crear conexión
