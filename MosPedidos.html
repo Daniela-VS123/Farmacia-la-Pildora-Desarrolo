@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Pedidos - Sistema de Farmacia</title>
+    <link rel="stylesheet" href="MosPedidos.css"> <!-- Archivo CSS para los estilos -->
+</head>
+<body>
+    <header class="header">
+        <div class="header-box">
+            <img src="Logo farmacia.png" alt="Logo de la Farmacia" class="header-logo">
+            <h1>Pedidos Realizados</h1>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Tabla para mostrar los pedidos -->
+        <table class="pedidos-table">
+            <thead>
+                <tr>
+                    <th>ID Pedido</th>
+                    <th>Proveedor</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Fecha Pedido</th>
+                    <th>ID Sucursal</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="pedidosBody">
+                <!-- Las filas de los pedidos se llenarán dinámicamente -->
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <a href="Sistema-farmacia.html" class="back-button"><< Regresar al Menú Principal</a>
+        </div>
+    </main>
+
+    <script src="mostrarPedidos.js"></script> <!-- Archivo JavaScript para manejar los datos -->
+</body>
+</html>

@@ -1,0 +1,47 @@
+Instrucciones para Configurar XAMPP y tu Aplicación Web
+1. Descargar e Instalar XAMPP 8.2.12 (o la misma versión)
+Descargar XAMPP 8.2.12:
+
+Proporciona este enlace directo de descarga:
+XAMPP 8.2.12 - Download
+Elige la opción XAMPP for Windows (64-bit) y descarga el instalador.
+Instalar XAMPP:
+
+Ejecuta el archivo descargado (xampp-windows-x64-8.2.12-0-VS16-installer.exe).
+Asegúrate de elegir la instalación predeterminada de Apache, MySQL y PHP durante la instalación.
+En las opciones avanzadas de instalación, puedes dejar las configuraciones predeterminadas o elegir otra carpeta de instalación si lo prefieres (por defecto será C:\xampp).
+2. Colocar tu Aplicación Web en XAMPP
+Ubicación de tu aplicación:
+
+Después de la instalación, abre el directorio de instalación de XAMPP, que por defecto estará en C:\xampp\.
+Dentro de esa carpeta, localiza la subcarpeta llamada htdocs.
+Coloca la carpeta de tu aplicación (por ejemplo, MiApp) dentro de htdocs:
+makefile
+Copiar código
+C:\xampp\htdocs\MiApp
+Archivos de la Aplicación:
+
+Asegúrate de incluir todos los archivos de tu aplicación: PHP, HTML, CSS, JavaScript y cualquier archivo relacionado.
+Si usas una base de datos MySQL, incluye el archivo .sql para crear la base de datos (por ejemplo, farmacia.sql).
+3. Configurar la Base de Datos en XAMPP
+Acceder a phpMyAdmin:
+
+En el Panel de Control de XAMPP, haz clic en Start para iniciar Apache y MySQL.
+Abre tu navegador web y escribe en la barra de direcciones:
+arduino
+Copiar código
+http://localhost/phpmyadmin
+Esto abrirá la interfaz de phpMyAdmin, donde podrás gestionar las bases de datos.
+Crear la Base de Datos:
+
+En phpMyAdmin, haz clic en Nueva (New) para crear una nueva base de datos.
+Asigna el nombre de la base de datos que tu aplicación usa (por ejemplo, FARMACIA).
+Importar el archivo SQL:
+
+Si tienes un archivo SQL para crear las tablas (por ejemplo, farmacia.sql), selecciona la base de datos que acabas de crear y ve a la pestaña Importar.
+Haz clic en Elegir archivo y selecciona el archivo .sql de tu aplicación.
+Haz clic en Ejecutar para cargar la estructura de la base de datos.
+
+
+Si la base de datos no te permite abrir con Xampp, puedes hacerlo con docker
+Base de datos:http://localhost/phpmyadmin/index.php?route=/database/structure&db=Farmacia

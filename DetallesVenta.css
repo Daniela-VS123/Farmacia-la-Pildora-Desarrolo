@@ -1,0 +1,85 @@
+/* Fondo y estructura general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #478a71;
+    color: white;
+    padding: 20px;
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    width: 125px; /* Ajusta el tamaño según sea necesario */
+    margin-right: 30px;
+}
+
+.search-container {
+    flex-grow: 30;
+    text-align: right;
+}
+
+.search-input {
+    padding: 10px;
+    width: 250px; /* Asegura que tenga el mismo tamaño que la barra de búsqueda de "Caducidades" */
+    border: none;
+    border-radius: 40px;
+}
+
+/* Contenedor principal */
+.main-container {
+    padding: 20px;
+}
+
+/* Estilo para la tabla de ofertas */
+.ventas-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.ventas-table th,
+.ventas-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.ventas-table th {
+    background-color: #f2f2f2;
+}
+
+/* Estilo del botón de regreso */
+.button-container {
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #478a71;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}
+
+/* Ajuste del tamaño del título */
+.header h1 {
+    font-size: 50px; /* Título con tamaño grande */
+    margin: 0; /* Eliminar márgenes */
+}

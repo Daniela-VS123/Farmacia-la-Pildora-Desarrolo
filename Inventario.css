@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #478a71;
+    color: white;
+    padding: 20px;
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    width: 125px;
+    margin-right: 30px;
+}
+
+.search-container {
+    flex-grow: 30;
+    text-align: right;
+}
+
+.search-input {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 40px;
+}
+
+.main-container {
+    padding: 20px;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse; /* Esto asegura que las celdas estén unidas */
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.inventory-table th,
+.inventory-table td {
+    border: 2px solid #000000; /* Usa un borde negro y grueso para asegurar que se vea */
+    text-align: left;
+    padding: 10px; /* Aumentar el padding para asegurar visibilidad */
+    background-color: #fff;
+}
+
+.inventory-table th {
+    background-color: #f2f2f2; /* Fondo claro para las cabeceras */
+}
+
+.inventory-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Fondo alterno para las filas */
+}
+
+.inventory-table tr:hover {
+    background-color: #f1f1f1; /* Fondo al pasar el ratón sobre las filas */
+}
+
+.button-container {
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #478a71;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}
+
+.header h1 {
+    font-size: 50px;
+    margin: 0;
+}

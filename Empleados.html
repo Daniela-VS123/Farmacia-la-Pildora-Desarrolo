@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Nuevo Usuario - Farmacia</title>
+    <link rel="stylesheet" href="Empleados.css">
+    <script>
+        // Función para verificar que las contraseñas coincidan
+        function validarContraseñas() {
+            var password = document.getElementById('nuevaPassword').value;
+            var confirmPassword = document.getElementById('confirmarPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert("Las contraseñas no coinciden.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="register-container">
+        <!-- Tabla para el título -->
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <tr>
+                <td style="text-align: center; background-color: #478a71; color: white; padding: 10px; font-size: 20px;">
+                    Registrar Nuevo Usuario
+                </td>
+            </tr>
+        </table>
+
+        <!-- Tabla para el formulario -->
+        <form method="POST" action="Empleados.php" onsubmit="return validarContraseñas()">
+            <div class="input-group">
+                <label for="Nombre">Nombre</label>
+                <input type="text" id="Nombre" name="Nombre" required>
+            </div>
+            <div class="input-group">
+                <label for="Correo">Correo</label>
+                <input type="email" id="Correo" name="Correo" required>
+            </div>
+            <div class="input-group">
+                <label for="Puesto">Puesto</label>
+                <select id="Puesto" name="Puesto" required>
+                    <option value="" disabled selected>Selecciona un Puesto</option>
+                    <option value="dueños">Dueños</option>
+                    <option value="gerentes">Gerentes</option>
+                    <option value="cajeros">Cajeros</option>
+                    <option value="almacenistas">Almacenistas</option>
+                    <option value="otros">Otros</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="Telefono">Teléfono</label>
+                <input type="tel" id="Telefono" name="Telefono" required>
+            </div>
+            <div class="input-group">
+                <label for="CURP">CURP</label>
+                <input type="text" id="CURP" name="CURP" required>
+            </div>
+            <div class="input-group">
+                <label for="RFC">RFC</label>
+                <input type="text" id="RFC" name="RFC" required>
+            </div>
+            <div class="input-group">
+                <label for="Salario">Salario</label>
+                <input type="number" id="Salario" name="Salario" required>
+            </div>
+            <div class="input-group">
+                <label for="nuevaPassword">Contraseña</label>
+                <input type="password" id="nuevaPassword" name="nuevaPassword" required>
+            </div>
+            <div class="input-group">
+                <label for="confirmarPassword">Confirmar Contraseña</label>
+                <input type="password" id="confirmarPassword" name="confirmarPassword" required>
+            </div>
+            <button type="submit">Registrar</button>
+            <p class="login-link"><a href="login_2.html">Volver al Login</a></p>
+        </form>
+    </div>
+</body>
+</html>

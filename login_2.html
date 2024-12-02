@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Farmacia</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <!-- Barra superior con logo -->
+    <header class="header">
+        <div class="header-box">
+            <img src="logo farmacia.png" alt="Logo de la Farmacia" class="header-logo">
+            <h1>Farmacia La Píldora</h1>
+        </div>
+    </header>
+
+    <!-- Contenedor del formulario de login -->
+    <main class="login-container">
+        <div class="login-box">
+            <img src="Usuario.png" alt="Imagen de Login" class="login-image">
+            <!-- El formulario envía datos a login.php -->
+            <form action="login.php" method="POST">
+                <div class="input-group">
+                    <label for="Nombre">Usuario</label>
+                    <input type="text" id="Nombre" name="Nombre" required>
+                </div>
+                <div class="input-group">
+                    <label for="Clave">Contraseña</label>
+                    <input type="password" id="Clave" name="Clave" required>
+                </div>
+                <button type="submit" name="Boton">Iniciar Sesión</button>
+                <!-- Enlace para registrar nuevo usuario -->
+                <p class="register-link"><a href="Empleados.html">Registrar Nuevo Usuario</a></p>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
+

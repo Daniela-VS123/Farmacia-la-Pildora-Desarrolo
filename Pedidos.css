@@ -1,0 +1,121 @@
+/* Fondo y estructura general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('fondo4.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+    background-position: center center; /* Centra la imagen */
+    background-attachment: fixed; /* Hace que la imagen se mantenga fija cuando se hace scroll */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+/* Encabezado */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #478a71; /* Fondo verde sólido para el encabezado */
+    color: white;
+    padding: 20px;
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    width: 125px;
+    margin-right: 30px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.main-container {
+    padding: 20px;
+}
+
+/* Estilos del formulario */
+.order-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white; /* Fondo blanco para el formulario */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para el formulario */
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.order-table td {
+    padding: 10px;
+}
+
+.order-table td label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="number"], input[type="date"] {
+    width: 100%;
+}
+
+.submit-button, .cancel-button {
+    padding: 10px 20px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.submit-button {
+    background-color: #478a71; /* El mismo color verde para el botón de realizar pedido */
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+.cancel-button {
+    background-color: #478a71; /* Color rojo para el botón de cancelar */
+    margin-left: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #c9302c;
+}
+
+/* Información del pedido */
+.pedido-info {
+    background-color: #f2f2f2; /* Fondo gris claro para la sección de detalles del pedido */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.pedido-info p {
+    font-size: 18px;
+}
+
+.pedido-info span {
+    font-weight: bold;
+}

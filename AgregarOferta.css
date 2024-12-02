@@ -1,0 +1,156 @@
+/* Fondo y estructura general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('fondo4.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Encabezado */
+.header {
+    background-color: #478a71;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    padding: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor principal para centrar el formulario */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Ajusta la altura según el header */
+}
+
+/* Estilo del formulario y la tabla */
+.form-table {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 400px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Botones */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cancel-button,
+.add-button,
+.view-offers-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.cancel-button {
+    background-color: #ccc;
+    color: black;
+    text-decoration: none;
+}
+
+.add-button {
+    background-color: #478a71;
+    color: white;
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
+
+.view-offers-button {
+    background-color: #478a71;
+    color: white;
+}
+
+.view-offers-button:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para los campos adicionales */
+.controlledField {
+    display: none;
+}
+
+/* Estilo para la imagen de fondo */
+.background-image {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo de las filas de la tabla de ofertas */
+.offer-table {
+    width: 80%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
+
+.offer-table th,
+.offer-table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+}
+
+.offer-table th {
+    background-color: #478a71;
+    color: white;
+}
+
+.offer-table td {
+    background-color: #478a71;
+}
+
+/* Estilo para las celdas de la tabla de ofertas */
+.offer-table td, .offer-table th {
+    font-size: 16px;
+}
+
+.offer-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.offer-table tr:hover {
+    background-color: #f1f1f1;
+}

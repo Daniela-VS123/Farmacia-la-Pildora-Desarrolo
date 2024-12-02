@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Medicamento - Sistema de Farmacia</title>
+    <link rel="stylesheet" href="RecepcionM.css">
+
+    <script>
+        // Función para establecer la fecha de entrada al día actual
+        window.onload = function() {
+            var today = new Date().toISOString().split('T')[0]; // Obtiene la fecha en formato yyyy-mm-dd
+            document.getElementById('fecha-entrada').value = today;
+        };
+    </script>
+    
+</head>
+<body>
+    <div class="background-image">
+        <div class="header">
+            <h1>Agregar Medicamento</h1>
+        </div>
+
+        <div class="main-container">
+            <form class="form-table" action="RecepcionM.php" method="POST">
+                <table>
+                    <tr>
+                        <td><label for="nombre">Nombre del Producto:</label></td>
+                        <td><input type="text" id="nombre" name="nombre" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="lote">Lote:</label></td>
+                        <td><input type="text" id="lote" name="lote" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cantidad">Número de Piezas:</label></td>
+                        <td><input type="number" id="cantidad" name="cantidad" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="precio-compra">Precio de Compra:</label></td>
+                        <td><input type="number" id="precio-compra" name="precio-compra" step="0.01" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="precio-venta">Precio de Venta:</label></td>
+                        <td><input type="number" id="precio-venta" name="precio-venta" step="0.01" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="proveedor">Proveedor:</label></td>
+                        <td><input type="text" id="proveedor" name="id-proveedor" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fecha-entrada">Fecha de Entrada:</label></td>
+                        <td><input type="date" id="fecha-entrada" name="fecha-entrada" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fecha-caducidad">Fecha de Caducidad:</label></td>
+                        <td><input type="date" id="fecha-caducidad" name="fecha-caducidad" required></td>
+                    </tr>
+                    <tr>
+                         <td><label for="categoria">Categoría:</label></td>
+                        <td>
+                            <!-- Lista desplegable de categorías -->
+                            <select id="categoria" name="categoria" required>
+                                <option value="">Selecciona una categoría</option>
+                                <option value="1">Antibiótico</option>
+                                <option value="2">Medicamento en refrigeración</option>
+                                <option value="3">Vitaminas/Suplementos</option>
+                                <option value="4">Medicamento controlado</option>
+                                <option value="5">Medicamento de libre venta</option>
+                                <option value="6">Articulos no Medicamentos-Insumos</option>
+                                <option value="7">Otros</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="descripcion">Descripción:</label></td>
+                        <td><textarea id="descripcion" name="descripcion"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="regresable">¿Es regresable?</label></td>
+                        <td><input type="checkbox" id="regresable" name="regresable"></td>
+                    </tr>
+                </table>
+                <div class="button-container">
+                    <a href="Sistema-farmacia.html" class="cancel-button">Cancelar</a>
+                    <button type="submit" class="add-button">Agregar Medicamento</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+

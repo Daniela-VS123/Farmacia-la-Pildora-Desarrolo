@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas - Sistema de Farmacia</title>
+    <link rel="stylesheet" href="Venta.css"> <!-- Cambia el nombre del archivo CSS si es necesario -->
+</head>
+<body>
+    <header class="header">
+        <div class="header-box">
+            <img src="Logo farmacia.png" alt="Logo de la Farmacia" class="header-logo">
+            <h1>Detalles de Ventas</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar venta..." class="search-input" id="searchInput">
+        </div>
+    </header>
+
+    <main class="main-container">
+        <table class="ventas-table">
+            <thead>
+                <tr>
+                    <th>ID Detalle Venta</th>
+                    <th>ID Sucursal</th>
+                    <th>ID Empleado</th>
+                    <th>Fecha de Venta</th>
+                </tr>
+            </thead>
+            <tbody id="ventasBody">
+                <!-- Las filas se añadirán aquí dinámicamente -->
+            </tbody>
+        </table>
+        <div class="button-container">
+            <a href="Sistema-farmacia.html" class="back-button"><< Regresar al Menú Principal</a>
+        </div>
+    </main>
+
+    <script src="ventas.js"></script> <!-- Archivo de JavaScript -->
+</body>
+</html>
+

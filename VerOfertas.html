@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Ofertas - Sistema de Farmacia</title>
+    <link rel="stylesheet" href="VerOfertas.css"> <!-- Nombre del archivo CSS para mantener el diseño -->
+</head>
+<body>
+    <header class="header">
+        <div class="header-box">
+            <img src="Logo farmacia.png" alt="Logo de la Farmacia" class="header-logo">
+            <h1>Ver Ofertas Registradas</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar oferta..." class="search-input" id="searchInput">
+        </div>
+    </header>
+
+    <main class="main-container">
+        <table class="offer-table">
+            <thead>
+                <tr>
+                    <th>ID Producto</th>
+                    <th>Nombre del Producto</th>
+                    <th>Precio Original</th>
+                    <th>Precio con Descuento</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Fin</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="offerList">
+                <!-- Las ofertas se añadirán dinámicamente aquí -->
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <a href="Sistema-farmacia.html" class="back-button"><< Regresar al Menú Principal</a>
+        </div>
+    </main>
+
+    <script src="verOfertas.js"></script> <!-- Archivo de JavaScript -->
+</body>
+</html>

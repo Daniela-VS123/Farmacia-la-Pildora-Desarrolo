@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Compra de Medicamentos</title>
+    <link rel="stylesheet" href="NuevaVenta.css">
+
+    <script>
+        // Función para calcular el precio total
+        function calculateTotal() {
+            var quantity = document.getElementById('quantity').value;
+            var unitPrice = document.getElementById('unitPrice').value;
+            var totalPrice = quantity * unitPrice;
+            document.getElementById('totalPrice').value = totalPrice.toFixed(2);
+        }
+
+        // Función para mostrar los campos adicionales si el producto es "Medicamento Controlado"
+        function showControlledFields() {
+            const classification = document.getElementById('classification').value;
+            const controlledFields = document.querySelectorAll('.controlledField'); // Todos los campos adicionales
+
+            if (classification === 'antialergicos') {
+                // Mostrar todos los campos de medicamentos controlados
+                controlledFields.forEach(field => {
+                    field.style.display = 'table-row'; // Muestra los campos
+                });
+            } else {
+                // Ocultar todos los campos de medicamentos controlados si no se selecciona "Medicamento Controlado"
+                controlledFields.forEach(field => {
+                    field.style.display = 'none'; // Ocultar los campos
+                });
+            }
+        }
+
+        // Función para obtener los detalles del producto desde la base de datos
+        function fetchProductDetails() {
+            var productId = document.getElementById('productId').value;
+
+            if (productId.length > 0) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'fetch_product.php?idProducto=' + productId, true);
+                xhr.onload = function() {
+                    if (xhr.status == 200) {
+                        var product = JSON.parse(xhr.responseText);
+                        if (product) {
+                            document.getElementById('productName').value = product.Nombre;  // Asignar el nombre del producto
+                            document.getElementById('unitPrice').value = product.PrecioVenta;  // Asignar el precio de venta
+                            calculateTotal(); // Recalcular el total
+                        } else {
+                            alert('Producto no encontrado');
+                        }
+                    } else {
+                        alert('Error al obtener los detalles del producto');
+                    }
+                };
+                xhr.send();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="background-image">
+        <div class="header">
+            <h1>Compra de Medicamentos</h1>
+        </div>
+
+        <div class="main-container">
+            <form class="form-table" action="NuevaVenta.php" method="POST">
+                <table>
+                    <!-- Campo para el ID del empleado -->
+                    <tr>
+                        <td><label for="employeeId">ID del Empleado</label></td>
+                        <td><input type="text" id="employeeId" name="employeeId" required></td>
+                    </tr>
+
+                    <!-- Campo para el ID del Producto -->
+                    <tr>
+                        <td><label for="productId">ID del Producto</label></td>
+                        <td><input type="text" id="productId" name="productId" onchange="fetchProductDetails()" required></td>
+                    </tr>
+
+                    <!-- Nombre del Producto (solo lectura) -->
+                    <tr>
+                        <td><label for="productName">Nombre del Producto</label></td>
+                        <td><input type="text" id="productName" name="productName" readonly></td>
+                    </tr>
+
+                    <!-- Cantidad -->
+                    <tr>
+                        <td><label for="quantity">Cantidad de Unidades</label></td>
+                        <td><input type="number" id="quantity" name="quantity" required min="1" onchange="calculateTotal()"></td>
+                    </tr>
+
+                    <!-- Precio Unitario (solo lectura) -->
+                    <tr>
+                        <td><label for="unitPrice">Precio Unitario</label></td>
+                        <td><input type="text" id="unitPrice" name="unitPrice" readonly></td>
+                    </tr>
+
+                    <!-- Precio Total (solo lectura) -->
+                    <tr>
+                        <td><label for="totalPrice">Precio Total</label></td>
+                        <td><input type="text" id="totalPrice" name="totalPrice" readonly></td>
+                    </tr>
+
+                    <!-- Clasificación del Producto -->
+                    <tr>
+                        <td><label for="classification">Clasificación del Producto</label></td>
+                        <td>
+                            <select id="classification" name="classification" onchange="showControlledFields()">
+                                <option value="">Selecciona una categoría</option>
+                                <option value="analgesicos">Antibiótico</option>
+                                <option value="antibioticos">Medicamento en refrigeración</option>
+                                <option value="antisepticos">Vitaminas/Suplementos</option>
+                                <option value="antialergicos">Medicamento controlado</option>
+                                <option value="medicamentoLibreVenta">Medicamento de libre venta</option>
+                                <option value="articulosNoMedicamentos">Artículos no Medicamentos/Insumos</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <!-- Campos adicionales si el producto es Medicamento controlado -->
+                    <tr id="patientNameField" class="controlledField" style="display:none;">
+                        <td><label for="patientName">Nombre del Paciente</label></td>
+                        <td><input type="text" id="patientName" name="patientName"></td>
+                    </tr>
+                    <tr id="doctorNameField" class="controlledField" style="display:none;">
+                        <td><label for="doctorName">Nombre del Doctor Recetante</label></td>
+                        <td><input type="text" id="doctorName" name="doctorName"></td>
+                    </tr>
+                    <tr id="doctorPhoneField" class="controlledField" style="display:none;">
+                        <td><label for="doctorPhone">Teléfono del Doctor Recetante</label></td>
+                        <td><input type="text" id="doctorPhone" name="doctorPhone"></td>
+                    </tr>
+                    <tr id="doctorLicenseField" class="controlledField" style="display:none;">
+                        <td><label for="doctorLicense">Cédula Profesional del Doctor</label></td>
+                        <td><input type="text" id="doctorLicense" name="doctorLicense"></td>
+                    </tr>
+                    <tr id="controlledDetailsField" class="controlledField" style="display:none;">
+                        <td><label for="controlledDetails">Detalle de Medicamento Controlado</label></td>
+                        <td><textarea id="controlledDetails" name="controlledDetails"></textarea></td>
+                    </tr>
+                    <tr id="saleDateField" class="controlledField" style="display:none;">
+                        <td><label for="saleDate">Fecha de Venta</label></td>
+                        <td><input type="date" id="saleDate" name="saleDate"></td>
+                    </tr>
+
+                    <!-- Botón de Envío -->
+                    <tr>
+                        <td colspan="2" class="button-container">
+                            <button type="submit" class="return-button">Finalizar Compra</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="button-container">
+                            <a href="Sistema-farmacia.html" class="return-button">Cancelar</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

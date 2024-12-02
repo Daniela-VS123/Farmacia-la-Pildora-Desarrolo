@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caducidades - Sistema de Farmacia</title>
+    <link rel="stylesheet" href="Caducidades.css"> <!-- Cambia el nombre del archivo CSS si es necesario -->
+</head>
+<body>
+    <header class="header">
+        <div class="header-box">
+            <img src="Logo farmacia.png" alt="Logo de la Farmacia" class="header-logo">
+            <h1>Caducidades de Productos</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar producto..." class="search-input" id="searchInput">
+        </div>
+    </header>
+
+    <main class="main-container">
+        <table class="caducidades-table">
+            <thead>
+                <tr>
+                   <th>idCaducidad</th>
+                    <th>idMedicamento</th>
+                    <th>Fecha Caducidad</th>
+                    <th>Tiempo Restante</th>
+                </tr>
+            </thead>
+            <tbody id="caducidadesBody">
+                <!-- Las filas se añadirán aquí dinámicamente -->
+            </tbody>
+        </table>
+        <div class="button-container">
+            <a href="Sistema-farmacia.html" class="back-button"><< Regresar al Menú Principal</a>
+        </div>
+    </main>
+
+    <script src="caducidades.js"></script> <!-- Archivo de JavaScript -->
+</body>
+</html>

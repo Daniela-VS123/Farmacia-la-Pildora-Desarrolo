@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Medicamentos - Sistema de Farmacia</title>
+    <link rel="stylesheet" href="MosMedicamentos.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-box">
+            <img src="Logo farmacia.png" alt="Logo de la Farmacia" class="header-logo">
+            <h1>Mostrar Medicamentos</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar medicamento..." class="search-input">
+        </div>
+    </header>
+
+    <main class="main-container">
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>Id. Producto</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Fecha de Entrada</th>
+                    <th>Caducidad</th>
+                    <th>Precio Compra</th>
+                    <th>Precio Venta</th>
+                    <th>Categoría</th>
+                    <th>Lote</th>
+                    <th>Proveedor</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryBody">
+                <!-- Las filas se añadirán aquí dinámicamente mediante PHP -->
+                
+                <!-- Más filas de medicamentos -->
+            </tbody>
+        </table>
+        <div class="button-container">
+            <a href="Sistema-farmacia.html" class="back-button"><< Regresar al Menú Principal</a>
+        </div>
+    </main>
+
+    <script src="inventario.js"></script> <!-- Si decides agregar funcionalidad JavaScript más adelante -->
+</body>
+</html>

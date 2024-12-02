@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Oferta</title>
+    <link rel="stylesheet" href="AgregarOferta.css">
+
+    <script>
+        // Función para obtener los detalles del producto usando AJAX
+        function fetchProductDetails() {
+            var productId = document.getElementById('productId').value;
+
+            if (productId.length > 0) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'fetch_product.php?idProducto=' + productId, true);
+                xhr.onload = function() {
+                    if (xhr.status == 200) {
+                        var product = JSON.parse(xhr.responseText);
+                        if (product && product.Nombre) {
+                            // Asignar los detalles del producto en los campos del formulario
+                            document.getElementById('productName').value = product.Nombre;  // Asignar el nombre del producto
+                            document.getElementById('productPrice').value = product.PrecioVenta;  // Asignar el precio de venta (se usa como PrecioReal)
+                            calculateDiscountedPrice(); // Recalcular el total con descuento
+                        } else {
+                            alert('Producto no encontrado');
+                        }
+                    } else {
+                        alert('Error al obtener los detalles del producto');
+                    }
+                };
+                xhr.send();
+            }
+        }
+
+        // Función para calcular el precio con descuento
+        function calculateDiscountedPrice() {
+            var price = parseFloat(document.getElementById('productPrice').value);
+            var discountPercentage = parseFloat(document.getElementById('discount').value);
+
+            if (isNaN(discountPercentage)) {
+                discountPercentage = 0;
+            }
+
+            var discountedPrice = price - (price * discountPercentage / 100);
+            document.getElementById('discountedPrice').value = discountedPrice.toFixed(2);
+        }
+
+        // Función para enviar la oferta (en este caso solo una simulación)
+        function submitOffer() {
+            var productId = document.getElementById('productId').value;
+            var discount = document.getElementById('discount').value;
+            var startDate = document.getElementById('startDate').value;
+            var endDate = document.getElementById('endDate').value;
+
+            if (!productId || !discount || !startDate || !endDate) {
+                alert("Por favor completa todos los campos.");
+                return;
+            }
+
+            // Aquí iría el código para enviar los datos al servidor para guardarlos en la base de datos
+            alert("Oferta registrada con éxito.");
+            // Si necesitas enviar el formulario:
+            // document.getElementById('offerForm').submit();
+        }
+    </script>
+</head>
+<body>
+    <div class="background-image">
+        <div class="header">
+            <h1>Agregar Oferta de Producto</h1>
+        </div>
+
+        <div class="main-container">
+            <!-- Cambié el formulario para que tenga un id, lo cual es útil si deseas enviar el formulario mediante JavaScript -->
+            <form class="form-table" id="offerForm" action="AgregarOfertas.php" method="POST">
+                <table>
+                    <!-- ID del producto -->
+                    <tr>
+                        <td><label for="productId">ID del Producto</label></td>
+                        <td><input type="text" id="productId" name="idProducto" onchange="fetchProductDetails()" required></td>
+                    </tr>
+                    
+                    <!-- Nombre del producto y precio original -->
+                    <tr>
+                        <td><label for="productName">Nombre del Producto</label></td>
+                        <td><input type="text" id="productName" name="productName" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label for="productPrice">Precio Real</label></td>
+                        <td><input type="text" id="productPrice" name="productPrice" readonly></td>
+                    </tr>
+
+                    <!-- Porcentaje de descuento -->
+                    <tr>
+                        <td><label for="discount">Porcentaje de Descuento</label></td>
+                        <td><input type="number" id="discount" name="PorcentajeDescuento" min="0" max="100" onchange="calculateDiscountedPrice()" required></td>
+                    </tr>
+
+                    <!-- Precio con descuento -->
+                    <tr>
+                        <td><label for="discountedPrice">Precio con Descuento</label></td>
+                        <td><input type="text" id="discountedPrice" name="discountedPrice" readonly></td>
+                    </tr>
+
+                    <!-- Fechas de la oferta -->
+                    <tr>
+                        <td><label for="startDate">Fecha de Inicio</label></td>
+                        <td><input type="date" id="startDate" name="FechaInicio" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="endDate">Fecha de Fin</label></td>
+                        <td><input type="date" id="endDate" name="FechaFin" required></td>
+                    </tr>
+
+                    <!-- Botones de acción -->
+                    <tr>
+                        <td colspan="2" class="button-container">
+                            <a href="Sistema-farmacia.html" class="cancel-button">Cancelar</a>
+                            <a href="VerOfertas.php" class="cancel-button">Aceptar</a>
+                            
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

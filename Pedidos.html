@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Pedido a Proveedor - Sistema de Farmacia</title>
+    <link rel="stylesheet" href="Pedidos.css"> <!-- Archivo CSS para estilos -->
+</head>
+<body>
+    <header class="header">
+        <div class="header-box">
+            <img src="Logo farmacia.png" alt="Logo de la Farmacia" class="header-logo">
+            <h1>Realizar Pedido a Proveedor</h1>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Formulario para realizar un pedido a proveedor -->
+        <form id="orderForm" class="order-form" method="POST" action="Pedidos.php">
+            <table class="order-table">
+                <!-- Proveedor -->
+                <tr>
+                    <td><label for="proveedorSeleccionado">Proveedor:</label></td>
+                    <td>
+                        <select id="proveedorSeleccionado" name="proveedorSeleccionado" required onchange="habilitarProducto()">
+                            <option value="" disabled selected>Seleccione un proveedor</option>
+                            <option value="1">Proveedor A</option>
+                            <option value="2">Proveedor B</option>
+                            <option value="3">Proveedor C</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <!-- Producto -->
+                <tr>
+                    <td><label for="productoSeleccionado">Producto(s):</label></td>
+                    <td>
+                        <select id="productoSeleccionado" name="productoSeleccionado[]" multiple required onchange="actualizarPrecio()">
+                            <option value="" disabled selected>Seleccione productos</option>
+                            <option value="1" data-precio="10">Aspirina</option>
+                            <option value="2" data-precio="15">Ibuprofeno</option>
+                            <option value="3" data-precio="12">Paracetamol</option>
+                            <option value="4" data-precio="20">Amoxicilina</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <!-- Cantidad -->
+                <tr>
+                    <td><label for="cantidad">Cantidad(s):</label></td>
+                    <td><input type="number" id="cantidad" name="cantidad[]" min="1" required></td>
+                </tr>
+
+                <!-- Precio -->
+                <tr>
+                    <td><label for="precio">Precio del Producto:</label></td>
+                    <td><input type="text" id="precio" name="precio[]" readonly></td>
+                </tr>
+
+                <!-- Total Producto -->
+                <tr>
+                    <td><label for="totalProducto">Total por Producto:</label></td>
+                    <td><input type="text" id="totalProducto" name="totalProducto[]" readonly></td>
+                </tr>
+
+                <!-- Total Pedido -->
+                <tr>
+                    <td colspan="2">
+                        <h3>Total del Pedido: <span id="precioTotalPedido">0</span> MXN</h3>
+                    </td>
+                </tr>
+
+                <!-- Botones de acción -->
+                <tr>
+                    <td colspan="2" class="button-container">
+                        <button type="button" class="add-product-button" onclick="agregarProducto()">Agregar Producto</button>
+                        <button type="submit" class="submit-button">Realizar Pedido</button>
+                        <a href="Sistema-farmacia.html" class="cancel-button">Cancelar</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <!-- Información sobre el pedido (luego de realizarlo) -->
+        <div id="pedidoInfo" class="pedido-info" style="display:none;">
+            <h2>Detalles del Pedido a Proveedor:</h2>
+            <p><strong>Proveedor:</strong> <span id="proveedorInfo"></span></p>
+            <p><strong>Producto(s):</strong> <span id="productoInfo"></span></p>
+            <p><strong>Cantidad(s):</strong> <span id="cantidadInfo"></span></p>
+            <p><strong>Fecha del Pedido:</strong> <span id="fechaPedidoInfo"></span></p>
+        </div>
+    </main>
+
+    <script src="pedidosProveedor.js"></script> <!-- Archivo JavaScript -->
+
+    <script>
+        // Habilitar productos al seleccionar proveedor
+        function habilitarProducto() {
+            var proveedorSeleccionado = document.getElementById("proveedorSeleccionado").value;
+            var productoSelect = document.getElementById("productoSeleccionado");
+
+            if (proveedorSeleccionado) {
+                productoSelect.disabled = false;
+            } else {
+                productoSelect.disabled = true;
+            }
+        }
+
+        // Actualizar precio al seleccionar productos
+        function actualizarPrecio() {
+            var selectedOptions = document.getElementById("productoSeleccionado").selectedOptions;
+            var precios = [];
+
+            // Recorrer los productos seleccionados y obtener los precios
+            for (var i = 0; i < selectedOptions.length; i++) {
+                var precio = selectedOptions[i].getAttribute("data-precio");
+                precios.push(precio);
+            }
+
+            // Mostrar los precios en el campo correspondiente
+            document.getElementById("precio").value = precios.join(", ");
+        }
+
+        // Función para agregar productos al pedido y calcular el total
+        function agregarProducto() {
+            var productoSelect = document.getElementById("productoSeleccionado");
+            var cantidadInput = document.getElementById("cantidad");
+            var precioInput = document.getElementById("precio");
+            var totalProductoInput = document.getElementById("totalProducto");
+            var precioTotalPedido = document.getElementById("precioTotalPedido");
+
+            var selectedOptions = productoSelect.selectedOptions;
+            var cantidad = parseInt(cantidadInput.value);
+            var totalPedido = parseFloat(precioTotalPedido.innerText);
+
+            // Si hay productos seleccionados y cantidad es válida
+            if (selectedOptions.length > 0 && cantidad > 0) {
+                for (var i = 0; i < selectedOptions.length; i++) {
+                    var precio = parseFloat(selectedOptions[i].getAttribute("data-precio"));
+                    var totalProducto = precio * cantidad;
+
+                    // Mostrar el total del producto
+                    totalProductoInput.value = totalProducto;
+
+                    // Actualizar el total del pedido
+                    totalPedido += totalProducto;
+                }
+
+                // Actualizar el precio total del pedido
+                precioTotalPedido.innerText = totalPedido.toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>

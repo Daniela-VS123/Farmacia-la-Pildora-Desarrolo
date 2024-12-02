@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño total */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    height: 100vh; /* Asegura que el cuerpo tenga el tamaño completo de la ventana */
+}
+
+.header {
+    background-color: #f0f0f0; /* Color de fondo de la cabecera */
+    padding: 10px 10px; /* Padding para la cabecera */
+}
+
+.header-box {
+    display: flex; /* Usar flexbox para alinear el logo y el nombre */
+    align-items: center; /* Alinear verticalmente */
+    background-color: #478a71; /* Color de fondo de la caja */
+    padding: 10px; /* Espaciado interno de la caja */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de la caja */
+}
+
+.header-logo {
+    width: 100px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción del logo */
+    margin-right: 15px; /* Espacio entre logo y título */
+}
+
+h1 {
+    font-size: 60px; /* Tamaño del texto */
+    margin: 0; /* Elimina el margen del h1 */
+}
+
+.main-container {
+    display: flex;
+    margin-top: 20px;
+    flex: 1;
+    padding-bottom: 60px; /* Espacio suficiente para la barra fija */
+    overflow-y: auto; /* Permite el desplazamiento en caso de que el contenido sea más largo que la pantalla */
+}
+
+.sidebar {
+    background-color: white;
+    padding: 50px;
+    width: 500px; /* Aumenta el ancho si es necesario */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.photo-container {
+    margin-bottom: 20px;
+}
+
+.user-photo {
+    width: 100%; /* Ajusta el tamaño según sea necesario */
+    border-radius: 50%; /* Hace la imagen circular */
+}
+
+.action-box {
+    background-color: #f9f9f9;
+    padding: 15px; /* Aumenta el padding */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.action-button {
+    width: 100%;
+    padding: 12px; /* Aumenta el padding */
+    background-color: #478a71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.box {
+    background: white;
+    padding: 10px; /* Reduce el padding */
+    margin: 7px;
+    width: calc(30% - 20px); /* 3 cajas en la fila, ligeramente más pequeñas */
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+
+.img-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.img-button img {
+    width: 100%; /* Ajusta el tamaño según sea necesario */
+}
+
+/* Ajustes para hacer que las cajas se alineen en 2 filas */
+@media (max-width: 768px) {
+    .box {
+        width: calc(50% - 20px); /* 2 cajas en la fila en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 100%; /* 1 caja en la fila en pantallas muy pequeñas */
+    }
+}
+
+/* Barra inferior */
+.footer-bar {
+    position: fixed; /* Fija la barra en la parte inferior de la pantalla */
+    bottom: 0; /* Colócala en la parte inferior */
+    left: 0;
+    width: 100%;
+    background-color: #478a71;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Sombra superior */
+    z-index: 10; /* Asegura que la barra esté por encima de otros elementos */
+}
+
+.footer-bar span {
+    font-size: 16px;
+}
+
+.view-sucursales-button {
+    padding: 10px 20px;
+    background-color: white;
+    color: #478a71;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.view-sucursales-button:hover {
+    background-color: #f0f0f0;
+}
