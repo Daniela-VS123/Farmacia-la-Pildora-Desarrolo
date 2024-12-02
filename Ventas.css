@@ -19,7 +19,7 @@ body {
 }
 
 .header-logo {
-    width: 125px; /* Ajusta el tamaño según sea necesario */
+    width: 125px;
     margin-right: 30px;
 }
 
@@ -75,6 +75,6 @@ body {
 
 /* Ajuste del tamaño del título */
 .header h1 {
-    font-size: 50px; /* Cambia este valor al tamaño que prefieras */
-    margin: 0; /* Opcional: para quitar márgenes */
+    font-size: 50px; 
+    margin: 0; 
 }
