@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 // Configuración de la base de datos
 $server = "localhost";
 $user = "root";
-$pass = "clave";  // Cambia esta clave por la correcta
+$pass = "clave";  
 $db = "Farmacia";
 
 // Crear conexión
@@ -17,7 +17,7 @@ if (!$conexion) {
 }
 
 // Realizar la consulta para obtener los medicamentos
-$sql = "SELECT idProducto, Nombre, Cantidad, `Fecha de entrada`, FechaCaducidad, PrecioCompra, PrecioVenta, idClasificacion, Lote, idProvedor FROM Medicamentos";  // Asegúrate que el nombre de la columna es idProducto
+$sql = "SELECT idProducto, Nombre, Cantidad, `Fecha de entrada`, FechaCaducidad, PrecioCompra, PrecioVenta, idClasificacion, Lote, idProvedor FROM Medicamentos";  
 $result = mysqli_query($conexion, $sql);
 
 ?>
