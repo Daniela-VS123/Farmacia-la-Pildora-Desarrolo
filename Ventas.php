@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
-$user = "root";  // Cambia esto si es necesario
-$pass = "clave"; // Cambia esto si es necesario
+$user = "root";  
+$pass = "clave"; 
 $db = "Farmacia";
 
 // Crear conexión
@@ -41,7 +41,7 @@ $result = mysqli_query($conexion, $query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ventas - Sistema de Farmacia</title>
-    <link rel="stylesheet" href="MosEmpleados.css"> <!-- Aquí usas el mismo archivo CSS -->
+    <link rel="stylesheet" href="MosEmpleados.css"> 
 </head>
 <body>
     <header class="header">
@@ -110,7 +110,7 @@ $result = mysqli_query($conexion, $query);
         </div>
     </main>
 
-    <script src="empleados.js"></script> <!-- Si necesitas algún script adicional -->
+    <script src="empleados.js"></script> 
 </body>
 </html>
 
