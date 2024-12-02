@@ -23,11 +23,11 @@ $cantidad = $_POST['cantidad'] ?? 0;
 $precioCompra = $_POST['precio-compra'] ?? 0.00;
 $precioVenta = $_POST['precio-venta'] ?? 0.00;
 $proveedorId = $_POST['id-proveedor'] ?? '';  // ID del proveedor
-$fechaEntrada = $_POST['fecha-entrada'] ?? ''; // Asegúrate de usar el nombre exacto de la columna
+$fechaEntrada = $_POST['fecha-entrada'] ?? ''; 
 $fechaCaducidad = $_POST['fecha-caducidad'] ?? '';
-$categoria = $_POST['categoria'] ?? ''; // En tu base de datos este campo es `idClasificacion`
+$categoria = $_POST['categoria'] ?? ''; 
 $descripcion = $_POST['descripcion'] ?? '';
-$regresable = isset($_POST['regresable']) ? 1 : 0;  // Si el checkbox está marcado, será 1, sino será 0
+$regresable = isset($_POST['regresable']) ? 1 : 0; 
 
 // Verificar campos requeridos
 if (empty($nombre) || empty($lote) || empty($cantidad) || empty($precioCompra) || empty($precioVenta) || empty($proveedorId) || empty($fechaEntrada) || empty($fechaCaducidad) || empty($categoria)) {
@@ -74,7 +74,7 @@ try {
         mysqli_commit($conexion);
 
         // Redirigir a la página de éxito o inventario
-        header("Location: MosMedicamentos.php");  // Cambia la URL si es necesario
+        header("Location: MosMedicamentos.php");  
         exit();
     } else {
         throw new Exception("Error al preparar la consulta para Medicamentos: " . $conexion->error);
