@@ -2,7 +2,7 @@
 // Conectar a la base de datos
 $server = "localhost";
 $user = "root";
-$pass = "clave";  
+$pass = "clave";  // Cambia esta clave por la correcta
 $db = "Farmacia";
 
 // Crear la conexión
@@ -25,7 +25,7 @@ if (mysqli_num_rows($resultPedidos) > 0) {
     $pedidos = [];
     while ($pedido = mysqli_fetch_assoc($resultPedidos)) {
         // Para cada pedido, obtener sus detalles
-        $idPedido = $pedido['idPedido'];  
+        $idPedido = $pedido['idPedido'];  // Usamos idPedido
 
         // Obtener los detalles del pedido usando idPedido
         $sqlDetalles = "SELECT dp.idProducto, dp.Cantidad, dp.Precio, m.Nombre AS ProductoNombre

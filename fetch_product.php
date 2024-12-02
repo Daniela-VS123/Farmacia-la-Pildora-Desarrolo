@@ -2,7 +2,7 @@
 // Conectar a la base de datos
 $server = "localhost";
 $user = "root";
-$pass = "clave";  
+$pass = "clave";  // Cambia esta clave por la correcta
 $db = "Farmacia";
 
 $conexion = mysqli_connect($server, $user, $pass, $db);

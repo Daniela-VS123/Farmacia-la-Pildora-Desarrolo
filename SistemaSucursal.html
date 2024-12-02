@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Farmacia</title>
+    <link rel="stylesheet" href="SistemaSucursal.css">
+</head>
+<body>
+    
+    <div class="header">
+        <div class="header-box">
+            <img src="Logo farmacia.png" alt="Logo de la Farmacia" class="header-logo">
+            <h1>Farmacia la Pildora</h1>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="photo-container">
+                <img src="MEDI.png" alt="Foto del Usuario" class="user-photo">
+            </div>
+            <div class="action-box">
+                <!-- Enlace que redirige a nueva_venta.html -->
+                <a href="nuevaventa.html" class="action-button-link">
+                    <button class="action-button">Nueva Venta</button>
+                </a>
+                <a href="Caducidades.php" class="action-button-link">
+                    <button class="action-button">Caducidad del Medicamento</button>
+                </a>
+                <a href="Ventas.php" class="action-button-link">
+                    <button class="action-button">Ventas</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="box">
+                <h3>Recepción de Medicamentos</h3>
+                <a href="RecepcionM.html" class="img-button">
+                    <img src="RECEPCION.png" alt="Imagen 1">
+                </a>
+            </div>
+            <div class="box">
+                <h3>Clasificación de Medicamentos</h3>
+                <a href="Clasificacion.php" class="img-button">
+                    <img src="CLAS.png" alt="Imagen 2">
+                </a>
+            </div>
+            <div class="box">
+                <h3>Pedidos</h3>
+                <a href="Pedidos.php" class="img-button">
+                    <img src="PEDIDOS.png" alt="Imagen 5">
+                </a>
+            </div>
+            <div class="box">
+                <h3>Inventario</h3>
+                <a href="Inventario.php" class="img-button">
+                    <img src="INV.png" alt="Imagen 6">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra inferior con la información de la sucursal -->
+    <div class="footer-bar">
+        <span>Sucursal Secundaria: Sucursal B</span>
+    </div>
+</body>
+</html>

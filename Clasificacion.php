@@ -1,9 +1,9 @@
 <?php
 // Ajusta estos valores según tu configuración
-$servername = "localhost";  
-$username = "root";         
-$password = "clave"; 
-$dbname = "Farmacia";      
+$servername = "localhost";  // Puede ser "localhost" o la IP de tu servidor
+$username = "root";         // Usuario MySQL
+$password = "clave"; // Aquí va la contraseña correcta de tu base de datos
+$dbname = "Farmacia";       // Nombre de la base de datos
 
 // Crear la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);

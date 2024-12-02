@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
-$user = "root";  
-$pass = "clave"; 
+$user = "root";  // Cambia esto si es necesario
+$pass = "clave"; // Cambia esto si es necesario
 $db = "Farmacia";
 
 // Crear conexión
@@ -110,7 +110,7 @@ $result = mysqli_query($conexion, $query);
         </div>
     </main>
 
-    <script src="empleados.js"></script> 
+    <script src="empleados.js"></script> <!-- Si necesitas algún script adicional -->
 </body>
 </html>
 

@@ -1,8 +1,8 @@
 <?php
 // Configuración de la base de datos
 $server = "localhost";
-$user = "root";  
-$pass = "clave"; 
+$user = "root";  // Cambia esto si es necesario
+$pass = "clave"; // Cambia esto si es necesario
 $db = "Farmacia";
 
 // Crear conexión
@@ -59,6 +59,7 @@ if ($stmtVenta) {
                 // Obtener el ID generado del medicamento controlado insertado
                 $idControlado = $conexion->insert_id;
 
+                // Ahora que tenemos el ID de controlado, actualizamos el idControlado en la venta
                 $stmtVenta->bind_param('iiidii', $productId, $quantity, $unitPrice, $totalPrice, $employeeId, $idControlado);
             } else {
                 echo "Error al insertar en Controlado: " . $stmtControlados->error;

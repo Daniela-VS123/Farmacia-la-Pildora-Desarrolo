@@ -2,7 +2,7 @@
 // Configuración de la base de datos
 $server = "localhost";
 $user = "root";
-$pass = "clave"; 
+$pass = "clave";  // Cambia esta clave por la correcta
 $db = "Farmacia";
 
 // Crear conexión
@@ -17,7 +17,7 @@ if (!$conexion) {
 $query = "SELECT i.idInventario, m.Nombre, i.Lote, i.Cantidad, i.PrecioCompra, i.PrecioVenta, i.FechaEntrada, i.FechaCaducidad
           FROM Inventario i
           JOIN Medicamentos m ON i.idProducto = m.idProducto
-          ORDER BY i.FechaEntrada DESC";
+          ORDER BY i.FechaEntrada DESC"; // Puedes ordenar por cualquier campo que desees
 
 // Ejecutar la consulta
 $result = mysqli_query($conexion, $query);
@@ -35,7 +35,7 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario de Medicamentos - Sistema de Farmacia</title>
-    <link rel="stylesheet" href="MosEmpleados.css"> 
+    <link rel="stylesheet" href="MosEmpleados.css"> <!-- Referencia al archivo CSS -->
 </head>
 <body>
     <header class="header">
@@ -88,7 +88,7 @@ if (!$result) {
         </div>
     </main>
 
-    <script src="empleados.js"></script> 
+    <script src="empleados.js"></script> <!-- Si decides agregar funcionalidad JavaScript más adelante -->
 </body>
 </html>
 
@@ -96,3 +96,4 @@ if (!$result) {
 // Cerrar la conexión
 mysqli_close($conexion);
 ?>
+

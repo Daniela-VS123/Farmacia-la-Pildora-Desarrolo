@@ -2,7 +2,7 @@
 // Configuración de la base de datos
 $server = "localhost";
 $user = "root";
-$pass = "clave";  
+$pass = "clave";  // Cambia esta clave por la correcta
 $db = "Farmacia";
 
 // Crear conexión
@@ -54,7 +54,7 @@ mysqli_close($conexion);
     </header>
 
     <main class="main-container">
-        <table class="employees-table"> 
+        <table class="employees-table"> <!-- Usar la misma clase "employees-table" para la tabla -->
             <thead>
                 <tr>
                     <th>ID Oferta</th>
@@ -97,6 +97,6 @@ mysqli_close($conexion);
         </div>
     </main>
 
-    <script src="empleados.js"></script>
+    <script src="empleados.js"></script> <!-- Si decides agregar funcionalidad JavaScript más adelante -->
 </body>
 </html>

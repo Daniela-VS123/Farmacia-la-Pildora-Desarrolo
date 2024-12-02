@@ -76,16 +76,16 @@ h1 {
     font-size: 18px;
 }
 
-
+/* Estilos para pantallas más pequeñas */
 @media (max-width: 768px) {
     .sucursal-box {
-        width: calc(50% - 20px); 
+        width: calc(50% - 20px); /* 2 sucursales por fila en pantallas más pequeñas */
     }
 }
 
 @media (max-width: 480px) {
     .sucursal-box {
-        width: 100%; 
+        width: 100%; /* 1 sucursal por fila en pantallas pequeñas */
     }
 }
 
